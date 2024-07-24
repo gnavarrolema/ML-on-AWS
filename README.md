@@ -3,6 +3,8 @@
 
 Welcome to my ML on AWS project repository. This project is part of my portfolio and showcases my work in machine learning and cloud computing using AWS. Below you will find an overview of the project, setup instructions, and key features.
 
+![image](https://github.com/user-attachments/assets/e0755b43-f0fe-441d-805a-63b7f6f4d849)
+
 ## Project Overview
 
 This project demonstrates the integration of machine learning models with AWS services. The main components include data ingestion, processing, and analysis, all hosted on AWS infrastructure. The project uses Postgres for data storage, and various AWS Lambda functions for processing.
