@@ -11,10 +11,6 @@ This project demonstrates the integration of machine learning models with AWS se
 
 To set up the Postgres database, create the following table:
 
-sql
-
-Copiar código
-
 `CREATE TABLE guardian_posts_analytics (
     author VARCHAR(50),
     timestamp TIMESTAMP WITH TIME ZONE,
@@ -30,21 +26,13 @@ To add necessary Python packages to your Lambda functions, follow these steps:
 1.  Go to `Function Overview > Layers > Add a layer`.
     
 2.  Under `Choose a layer > Specify an ARN`, add the following ARNs for the required packages:
-    
-    plaintext
-    
-    Copiar código
-    
+     
     `arn:aws:lambda:eu-central-1:770693421928:layer:Klayers-python38-nltk:47
     arn:aws:lambda:eu-central-1:770693421928:layer:Klayers-python38-pytz:5
     arn:aws:lambda:eu-central-1:770693421928:layer:Klayers-python38-pandas:37` 
     
-    If you are in a different region, replace the region name accordingly. If you encounter an error, check the layer's existence by replacing your region in the URL below:
-    
-    plaintext
-    
-    Copiar código
-    
+    If you are in a different region, replace the region name accordingly. If you encounter an error, check the layer's existence by replacing your region in the URL below:   
+   
     `https://api.klayers.cloud/api/v1/layers/latest/{region}/{layer-name}` 
     
     Example:
@@ -61,47 +49,27 @@ Although not necessary, it is recommended to set up a local environment for deve
 2.  Start the Anaconda3 PowerShell.
     
 3.  Set the environment variables:
-    
-    powershell
-    
-    Copiar código
-    
+       
     `[Environment]::SetEnvironmentVariable("GUARDIAN_API_KEY", "Your-api-key", "User")
     [Environment]::SetEnvironmentVariable("S3_BUCKET_NAME", "my-guardianpost-analytics-storage", "User")
     [Environment]::SetEnvironmentVariable("DB_PASSWORD", "password", "User")
     [Environment]::SetEnvironmentVariable("DB_HOST", "your-RDS-endpoint", "User")` 
     
 4.  Create and activate the virtual environment:
-    
-    bash
-    
-    Copiar código
-    
+        
     `conda create --name guardianpost_analytics_py38 python=3.8 spyder
     conda activate guardianpost_analytics_py38` 
     
 5.  Install necessary packages:
-    
-    bash
-    
-    Copiar código
-    
+        
     `conda install -c conda-forge poetry
     conda install -c conda-forge notebook` 
     
 6.  Install project dependencies:
     
-    bash
-    
-    Copiar código
-    
     `poetry install` 
     
 7.  Run the local dashboard after setting environmental variables:
-    
-    bash
-    
-    Copiar código
     
     `poetry run streamlit run src/app.py` 
     
